@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mynodeapp-linux
+  labels:
+    creation_method: manual
+    env: prod
+ 
+spec:
+  nodeSelector:
+    linux: "true"
+  containers:
+  - name: mynodeapp-container
+    image: anandr72/mynodeapp
+    ports: 
+      - containerPort: 8080
+        protocol: TCP
