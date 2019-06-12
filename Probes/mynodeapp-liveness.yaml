@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mynodeapp-liveness
+ 
+spec:
+  containers:
+  - name: mynodeapp-container
+    image: anandr72/mynodeapp-unhealthy
+    livenessProbe:
+        httpGet:
+            path: /
+            port: 8080

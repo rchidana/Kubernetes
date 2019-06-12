@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mynodeapp-label
+  labels:
+    app: mynodeapp
+  
+spec:
+  containers:
+  - name: mynodeapp-container
+    image: anandr72/mynodeapp
+    ports: 
+      - containerPort: 8080
+        protocol: TCP

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: mynodeapp-rs
+spec:
+  replicas: 3
+  selector:
+    matchExpressions:
+      - key: app
+        operator: In
+        values:
+          - mynodeapp
+  template:
+    metadata:
+      labels:
+        app: mynodeapp
+    spec:
+      containers:
+      - name: mynodeapp-container
+        image: anandr72/mynodeapp
+        ports:
+        - containerPort: 80
