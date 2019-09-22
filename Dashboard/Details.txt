@@ -15,7 +15,7 @@ Create Heapster Cluster role for the Dashboard
 >kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/rbac/heapster-rbac.yaml
 
 Create a Service Account for creating a role
->
+>kubectl apply -f dash-admin-service-account.yaml
 
 Get the Auth token for the Service Account that we just created
 >kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep dash-admin | awk '{print $1}')
