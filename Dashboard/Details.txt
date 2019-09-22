@@ -1,0 +1,27 @@
+Start Minikube with a stable Kubernetes Version in which Dashboard shows up correctly
+
+>sudo minikube start --vm-driver=none --kubernetes-version v1.11.10
+
+Deploy Dashboard (ver 1.10.1)
+>kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml
+
+Deploy Heapster for getting more metrics from your Cluster
+>kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/heapster.yaml
+
+Deploy InfluxDB backend required for Heapster
+>kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/influxdb/influxdb.yaml
+
+Create Heapster Cluster role for the Dashboard
+>kubectl apply -f https://raw.githubusercontent.com/kubernetes/heapster/master/deploy/kube-config/rbac/heapster-rbac.yaml
+
+Create a Service Account for creating a role
+>
+
+Get the Auth token for the Service Account that we just created
+>
+
+Start kubectl proxy & let this run on your terminal
+>kubectl proxy
+
+Access the Dashboard URL from a web browser
+http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/login
