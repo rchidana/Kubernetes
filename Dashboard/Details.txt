@@ -18,7 +18,7 @@ Create a Service Account for creating a role
 >
 
 Get the Auth token for the Service Account that we just created
->
+>kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep dash-admin | awk '{print $1}')
 
 Start kubectl proxy & let this run on your terminal
 >kubectl proxy
