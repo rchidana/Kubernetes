@@ -1,0 +1,36 @@
+Install Kubectl
+
+>curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+>echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+>sudo apt-get update
+>sudo apt-get install -y kubectl
+
+Check kubectl version
+>kubectl version
+
+Install Minikube
+>curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
+  && chmod +x minikube
+>sudo install minikube /usr/local/bin
+
+Start Minikube single node cluster with K8s v1.11.10
+>sudo minikube start --vm-driver=none --kubernetes-version v1.11.10
+
+All configurations will be in ~/.kube & ~/.minikube folders
+Change their permissions so that its available to ubuntu user (so that ubuntu user can run kubectl commands)
+>sudo chown -R $USER $HOME/.kube $HOME/.minikube
+
+Get cluster info using kubectl
+>kubectl get nodes
+
+Let us run a sample deployment & check our set up
+>kubectl run hello-minikube --image=gcr.io/google_containers/echoserver:1.4 --port=8080
+>kubectl expose deployment hello-minikube  --type=NodePort
+
+>kubectl get pod
+>minikube service hello-minikube 
+
+This will open up a web browser and hit the service URL
+If everything is OK, let us delete our deployment & service
+>kubectl delete deployment hello-minikube
+>kubectl delete svc hello-minikube
