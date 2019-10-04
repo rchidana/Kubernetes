@@ -13,8 +13,8 @@ Install Minikube
   && chmod +x minikube
 >sudo install minikube /usr/local/bin
 
-Start Minikube single node cluster with K8s v1.11.10
->sudo minikube start --vm-driver=none --kubernetes-version v1.11.10
+Start Minikube single node cluster with out specifying any VM Driver
+>sudo minikube start --vm-driver=none 
 
 All configurations will be in ~/.kube & ~/.minikube folders
 Change their permissions so that its available to ubuntu user (so that ubuntu user can run kubectl commands)
