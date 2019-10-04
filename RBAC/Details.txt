@@ -1,0 +1,53 @@
+# generate a Key for user1
+>openssl genrsa -out user1.key 2048
+
+# generate Client Sign Request (CSR)
+>openssl req -new -key user1.key -out user1.csr -subj "/CN=user1/O=testlabs"
+
+>ls ~/.minikube/
+# Check that the files ca.crt and ca.key exist in the location, since these are required for creating certificates
+
+# generate a Certificate using CSR & Keys that we created earlier
+>openssl x509 -req -in user1.csr -CA ~/.minikube/ca.crt -CAkey ~/.minikube/ca.key -CAcreateserial -out user1.crt -days 500
+
+# Create a new user in Kubeconf by specifying his Certificate & Key
+>kubectl config set-credentials user1 --client-certificate=user1.crt --client-key=user1.key
+
+# Create a new user context in Kubeconf for user1
+>kubectl config set-context user1-context --cluster=minikube --namespace=default --user=user1
+
+# Check Kubeconfig 
+>kubectl config view
+
+# Switch to user1
+>kubectl config use-context user1-context
+
+# Check if we have really switched to user1
+kubectl config current-context
+
+# Try creating a new namespace or to list PODs
+
+>kubectl create namespace ns-test # Forbidden
+>kubectl get pods # Forbidden
+
+# Role & RoleBinding
+# Let us create a new Role and Bind it with appropriate rights
+# Switch back to Minikube user (admin privileges)
+
+>kubectl config use-context minikube
+
+# Creating a New Role for user1
+>kubectl apply -f role.yaml
+
+# Applying Role binding
+>kubectl apply -f role-binding.yaml
+
+# Check Role and RoleBindings
+>kubectl get roles
+>kubectl get rolebindings
+
+# Switch back to user1 and see if he has rights to create new namespace or list pods!!
+
+>kubectl config use-context user1-context
+>kubectl create namespace ns-test
+>kubectl get pods
