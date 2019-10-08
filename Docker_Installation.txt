@@ -1,4 +1,4 @@
-Installing Docker CE on Ununtu:
+Installing Docker CE on Ubuntu:
 
 Update Ubuntu Libraries
 >sudo apt-get update
