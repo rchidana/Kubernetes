@@ -26,6 +26,12 @@ Update APT package index
 Install Latest version of Docker CE
 >sudo apt-get install docker-ce
 
+Check if docker service is running
+>sudo systemctl status docker
+
+If not running, start it
+>sudo systemctl start docker
+
 Check if Docker is installed
 >docker version
 
