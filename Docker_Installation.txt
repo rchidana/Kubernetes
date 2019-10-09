@@ -36,7 +36,7 @@ Check if Docker is installed
 >docker version
 
 Add ubuntu user to docker user group
->usermod -aG docker ubuntu
+>sudo usermod -aG docker ubuntu
 
 Open a new Terminal (duplicate Putty session)
 Check by running Docker hello-world image
