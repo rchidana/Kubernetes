@@ -2,7 +2,10 @@
 >openssl genrsa -out user1.key 2048
 
 # generate Client Sign Request (CSR)
+#On Linux machine
 >openssl req -new -key user1.key -out user1.csr -subj "/CN=user1/O=testlabs"
+# Or on Windows machine, install any Linux bash or even Git Bash and try the following command:
+>openssl req -new -key user1.key -out user1.csr -subj "//CN=user1\O=testlabs"
 
 >ls ~/.minikube/
 # Check that the files ca.crt and ca.key exist in the location, since these are required for creating certificates
