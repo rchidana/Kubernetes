@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mynodeapp-with-toleration
+ 
+spec:
+  containers:
+  - name: mynodeapp-container-with-toleration
+    image: anandr72/mynodeapp
+    ports: 
+      - containerPort: 8080
+        protocol: TCP
+  tolerations:
+  - key: "special"
+    operator: "Equal"
+    value: "true"
+    effect: "NoSchedule"
