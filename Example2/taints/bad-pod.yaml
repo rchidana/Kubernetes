@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: bad-pod
+  labels:
+    character: bad
+spec:
+  containers:
+  - name: bad-pod-container
+    image: supergiantkir/animals:bear

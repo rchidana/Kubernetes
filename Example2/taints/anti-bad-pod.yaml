@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: anti-bad-pod
+spec:
+  affinity:
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+          - key: character
+            operator: In
+            values:
+            - bad
+        topologyKey: kubernetes.io/hostname
+  containers:
+  - name: anti-bad-pod-container
+    image: supergiantkir/animals:hare
