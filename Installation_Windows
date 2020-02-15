@@ -1,0 +1,24 @@
+## Following are the instructions to Install Kubectl Version V1.14.9, Minikube Version V1.6.2 and Kubernetes Version V1.14.0
+## on Windows Desktop with at least two cores
+
+### Oracle VirtualBox ver 5.2.6 is a pre-requisite for these and please install it in case it is missing
+
+1. Download Kubectl Version V1.14.9 from location -> https://storage.googleapis.com/kubernetes-release/release/v1.14.9/bin/windows/amd64/kubectl.exe
+2. Copy it to any location on your system (say C:\Kubectl) and append this to the System PATH (Environment Variable -> Edit Path -> Append)
+
+
+3. Download Minikube Version V1.6.2 -> https://github.com/kubernetes/minikube/releases/tag/v1.6.2
+4. Unzip it to any folder and install it to C:\Minikube folder
+5. Ensure System PATH environment variable has C:\Minikube set, append it in case it is missing
+6. Add a new ENVIRONMENT Variable called - MINIKUBE_HOME and point it to C:\Minikube folder
+
+7. Open a command prompt, preferably with 'Administrative' permissions, in any folder and type in:
+
+>minikube start --vm-driver=virtualbox --kubernetes-version v1.14.0
+
+It will take a while for Virtual Box to spin up your Minikube and after the command prompt shows up, type in:
+
+>kubectl version
+>kubectl cluster-info
+
+That's it, your have successfully set up Minikube to run Kubernetes V 1.14!!
