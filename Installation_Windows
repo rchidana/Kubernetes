@@ -22,3 +22,7 @@ It will take a while for Virtual Box to spin up your Minikube and after the comm
 >kubectl cluster-info
 
 That's it, your have successfully set up Minikube to run Kubernetes V 1.14!!
+
+# If needed, put down the following in a bat file - start.bat and you can run this to start your K8s Cluster
+
+minikube start --vm-driver=virtualbox --kubernetes-version v1.14.0
