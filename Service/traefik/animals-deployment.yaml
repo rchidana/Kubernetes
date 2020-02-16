@@ -1,0 +1,78 @@
+---
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: bear
+  labels:
+    app: animals
+    animal: bear
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: animals
+      task: bear
+  template:
+    metadata:
+      labels:
+        app: animals
+        task: bear
+        version: v0.0.1
+    spec:
+      containers:
+      - name: bear
+        image: supergiantkir/animals:bear
+        ports:
+        - containerPort: 80
+---
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: moose
+  labels:
+    app: animals
+    animal: moose
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: animals
+      task: moose
+  template:
+    metadata:
+      labels:
+        app: animals
+        task: moose
+        version: v0.0.1
+    spec:
+      containers:
+      - name: moose
+        image: supergiantkir/animals:moose
+        ports:
+        - containerPort: 80
+---
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: hare
+  labels:
+    app: animals
+    animal: hare
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: animals
+      task: hare
+  template:
+    metadata:
+      labels:
+        app: animals
+        task: hare
+        version: v0.0.1
+    spec:
+      containers:
+      - name: hare
+        image: supergiantkir/animals:hare
+        ports:
+        - containerPort: 80
