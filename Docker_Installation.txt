@@ -27,7 +27,7 @@ Install Latest version of Docker CE
 >sudo apt-get install docker-ce
 
 Or try this
->sudo apt-get install docker-ce
+>sudo apt-get install docker.io
 
 Check if docker service is running
 >sudo systemctl status docker
