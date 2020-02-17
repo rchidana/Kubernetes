@@ -41,6 +41,9 @@ Check if Docker is installed
 Add ubuntu user to docker user group
 >sudo usermod -aG docker ubuntu
 
+or if running on Vagrant
+>sudo usermod -aG docker vagrant
+
 Open a new Terminal (duplicate Putty session)
 Check by running Docker hello-world image
 
