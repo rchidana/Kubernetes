@@ -18,5 +18,6 @@ spec:
       containers:
       - name: mynodeapp-container
         image: anandr72/mynodeapp
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
