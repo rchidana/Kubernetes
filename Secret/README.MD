@@ -25,5 +25,7 @@ kubectl describe secret db-user-pass
 #Decode the Secret
 kubectl get secret db-user-pass -o jsonpath='{.data}'
 echo 'UyFCXCpkJHpEc2I9' | base64 --decode
-
+echo 'YWRtaW4=' | base64 --decode
 ```
+
+### Create a busy-box pod which has this secret mounted as a volume in its mountPath - /etc/foo
