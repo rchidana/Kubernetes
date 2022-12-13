@@ -14,3 +14,16 @@ kubectl create secret generic db-user-pass \
 ```
 
 Note: You must use single quotes '' to escape special characters such as $, \, *, =, and ! in your strings. If you don't, your shell will interpret these characters.
+<br>
+
+Verify & Check your Secret
+
+```
+kubectl get secrets
+kubectl describe secret db-user-pass
+
+#Decode the Secret
+kubectl get secret db-user-pass -o jsonpath='{.data}'
+echo 'UyFCXCpkJHpEc2I9' | base64 --decode
+
+```
