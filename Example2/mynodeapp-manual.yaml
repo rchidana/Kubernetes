@@ -6,7 +6,8 @@ metadata:
 spec:
   containers:
   - name: mynodeapp-container
-    image: anandr72/mynodeapp
+    image: anandr72/mygoapp
+    imagePullPolicy: IfNotPresent
     ports: 
       - containerPort: 8080
         protocol: TCP

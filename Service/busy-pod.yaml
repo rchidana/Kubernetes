@@ -11,6 +11,7 @@ spec:
     - hello world;sleep
     - 1d'
     image: busybox
+    imagePullPolicy: IfNotPresent
     name: busy-cont
     resources: {}
   dnsPolicy: ClusterFirst
