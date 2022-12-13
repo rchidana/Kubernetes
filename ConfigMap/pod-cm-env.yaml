@@ -5,7 +5,8 @@ metadata:
 spec:
   containers:
     - name: env-var-configmap
-      image: nginx:1.7.9 
+      image: alpine
+      command: ["sleep", "36000"]
       envFrom:
         - configMapRef:
             name: example-configmap
