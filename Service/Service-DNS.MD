@@ -7,7 +7,7 @@ kubectl create ns demo
 kubectl -n demo apply -f https://k8s.io/examples/application/deployment-update.yaml
 
 # Check IP address of Pod(s)
-kubectl get po -o wide
+kubectl get po -o wide - demo
 
 # Let us expose this deployment as a service by providing a specific name - 'nginx-svc'
 
@@ -26,5 +26,5 @@ nslookup nginx-svc
 
 ```
 
-The Default FQDN provided by K8s follows this pattern --> <serviceName>.<namespaceName>.<cluster-name> and in our local cluster, <br>
-it defaults to <serviceName>.<namespaceName>.svc.cluster.local
+The Default FQDN provided by K8s follows this pattern --> serviceName.namespaceName.cluster-name and in our local cluster, <br>
+it defaults to serviceName.namespaceName.svc.cluster.local
