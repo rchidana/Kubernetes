@@ -5,8 +5,6 @@ metadata:
  
 spec:
   containers:
-  - name: mynodeapp-container
-    image: anandr72/mynodeapp
-    ports: 
-      - containerPort: 8085
-        protocol: TCP
+  - name: busy-container
+    image: busybox
+    command: ["sleep", "36000"]
