@@ -9,11 +9,13 @@ spec:
   containers:
   - name: 1st
     image: nginx
+    imagePullPolicy: IfNotPresent
     volumeMounts:
     - name: html
       mountPath: /usr/share/nginx/html
   - name: 2nd
     image: debian
+    imagePullPolicy: IfNotPresent
     volumeMounts:
     - name: html
       mountPath: /html
