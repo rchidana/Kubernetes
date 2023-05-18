@@ -1,0 +1,14 @@
+piVersion: v1
+kind: PersistentVolume
+metadata:
+  name: sts-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data
