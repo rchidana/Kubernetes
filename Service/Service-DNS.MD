@@ -7,7 +7,7 @@ kubectl create ns demo
 kubectl -n demo apply -f https://k8s.io/examples/application/deployment-update.yaml
 
 # Check IP address of Pod(s)
-kubectl get po -o wide - demo
+kubectl get po -o wide -n demo
 
 # Let us expose this deployment as a service by providing a specific name - 'nginx-svc'
 
