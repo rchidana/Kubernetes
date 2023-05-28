@@ -5,11 +5,8 @@ metadata:
 spec:
   containers:
   - command:
-    - /bin/sh
-    - -c
-    - '''echo'
-    - hello world;sleep
-    - 1d'
+    - sleep
+    - "1d"
     image: busybox
     imagePullPolicy: IfNotPresent
     name: busy-cont
