@@ -14,7 +14,7 @@ spec:
           creationTimestamp: null
         spec:
           containers:
-          - image: whalesay
+          - image: docker/whalesay
             command: ["cowsay", "Hello from Cron Job"]
             name: cron-whale-job
             resources: {}
