@@ -8,6 +8,6 @@ spec:
   containers:
   - name: command-demo-container
     image: alpine
-    command: ["printenv"]
-    args: ["HOSTNAME", "KUBERNETES_PORT"]
+    command: ["echo"]
+    args: ["Hello", "World!!"]
   restartPolicy: OnFailure
