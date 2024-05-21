@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  creationTimestamp: null
+  name: cron-whale-job
+spec:
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+      name: cron-whale-job
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+          - image: whalesay
+            command: ["cowsay", "Hello from Cron Job"]
+            name: cron-whale-job
+            resources: {}
+          restartPolicy: OnFailure
+  schedule: '* * * * *'
+status: {}
