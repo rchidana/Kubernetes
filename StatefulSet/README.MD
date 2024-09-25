@@ -1,13 +1,13 @@
 # First Create sts using the following YAML
 # Watch the order in which the pods get created
 
-### In one terminal, watch pods with label app=nginx
+# In one terminal, watch pods with label app=nginx
 
 ```
 kubectl get pods --watch -l app=nginx
 ```
 
-### In another tab, deploy sts 
+# In another tab, deploy sts 
 
 ```
 kubectl apply -f - <<EOF
