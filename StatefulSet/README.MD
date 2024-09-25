@@ -1,6 +1,7 @@
 # First Create sts using the following YAML
 
 ```
+kubectl apply -f - <<EOF
 apiVersion: v1
 kind: Service
 metadata:
@@ -47,6 +48,7 @@ spec:
       resources:
         requests:
           storage: 1Mi
+EOF
 ```
 
 # Then follow instructions from this tutorial : <br>
