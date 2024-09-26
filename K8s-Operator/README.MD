@@ -283,7 +283,7 @@ k describe crds
 # Let us deploy a pod with name 'jack' and check out the behaviour of our operator
 
 ```
-cat<<EOF | microk8s.kubectl apply -f -
+cat<<EOF | kubectl apply -f -
 ---
 apiVersion: v1
 kind: Pod
