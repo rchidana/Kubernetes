@@ -243,6 +243,8 @@ make run
 # Let us try our operator by first creating the following crds
 
 ```
+cat<<EOF | kubectl apply -f -
+---
 apiVersion: tutorial.my.domain/v1
 kind: Foo
 metadata:
@@ -269,6 +271,7 @@ metadata:
     app.kubernetes.io/created-by: operator-v1
 spec:
   name: joe
+EOF
 
 ```
 # Check out the logging information from our operator
@@ -280,6 +283,8 @@ k describe crds
 # Let us deploy a pod with name 'jack' and check out the behaviour of our operator
 
 ```
+cat<<EOF | microk8s.kubectl apply -f -
+---
 apiVersion: v1
 kind: Pod
 metadata:
@@ -291,6 +296,7 @@ spec:
     # Just sleep forever
     command: [ "sleep" ]
     args: [ "infinity" ]
+EOF
 ```
 
 # Check the logs for this message -->  INFO    foo's happy status updated
