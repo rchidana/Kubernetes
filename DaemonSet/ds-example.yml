@@ -10,6 +10,7 @@ spec:
     metadata:
       labels:
         app: monitor
+    spec:
       containers:
       - name: main
         image: anandr72/ssd-monitor
