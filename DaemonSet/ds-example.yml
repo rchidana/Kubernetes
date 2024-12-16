@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: monitor-ds
+  name: ds-monitor
 spec:
   selector:
     matchLabels:
-      app: myapp-monitor
+      name: myapp-monitor
   template:
     metadata:
       labels:
-        app: myapp-monitor
+        name: myapp-monitor
     spec:
       containers:
-      - name: main
-        image: anandr72/ssd-monitor
+        - name: ssd-monitor
+          image: anandr72/ssd-monitor
