@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: monitoring-ds
+  name: monitor-ds
 spec:
   selector:
     matchLabels:
-      app: monitor
+      app: myapp-monitor
   template:
     metadata:
       labels:
-        app: monitor
+        app: myapp-monitor
     spec:
       containers:
       - name: main
